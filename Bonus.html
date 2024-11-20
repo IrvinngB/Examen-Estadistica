@@ -7953,6 +7953,98 @@ Esta recta minimiza la suma de los cuadrados de las diferencias entre los valore
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8b0dd10e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Problemas-de-Permutaciones-y-Combinaciones-con-Datos-de-Encuesta">Problemas de Permutaciones y Combinaciones con Datos de Encuesta<a class="anchor-link" href="#Problemas-de-Permutaciones-y-Combinaciones-con-Datos-de-Encuesta">¶</a></h1><p>**Nota: este tema fue pasado por alto asi que fue anexado aqui</p>
+<h2 id="1.-Problema-de-Permutaciones">1. Problema de Permutaciones<a class="anchor-link" href="#1.-Problema-de-Permutaciones">¶</a></h2><h3 id="Ejemplo:">Ejemplo:<a class="anchor-link" href="#Ejemplo:">¶</a></h3><p>"¿De cuántas maneras diferentes se pueden ordenar los niveles de conocimiento (Básico, Intermedio, Avanzado) en Blockchain, IA y ML para un estudiante?"</p>
+<h3 id="Soluci%C3%B3n:">Solución:<a class="anchor-link" href="#Soluci%C3%B3n:">¶</a></h3><p>El orden importa en este caso, por lo que utilizaremos la fórmula de permutaciones</p>
+<hr/>
+<h2 id="2.-Problema-de-Combinaciones">2. Problema de Combinaciones<a class="anchor-link" href="#2.-Problema-de-Combinaciones">¶</a></h2><h3 id="Ejemplo:">Ejemplo:<a class="anchor-link" href="#Ejemplo:">¶</a></h3><p>"De los estudiantes encuestados, ¿de cuántas maneras se pueden seleccionar 3 estudiantes interesados en IA para formar un grupo?"</p>
+<h3 id="Soluci%C3%B3n:">Solución:<a class="anchor-link" href="#Soluci%C3%B3n:">¶</a></h3><p>El orden no importa en este caso, por lo que utilizaremos la fórmula de combinaciones</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3dedde87">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Importar librerías necesarias</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span><span class="p">,</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="c1"># Cargar los datos de la encuesta</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">'Respuestas.xlsx'</span>
+<span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">'Respuestas de formulario 1'</span>
+
+<span class="c1"># Leer los datos</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># Problema 1: Permutaciones</span>
+<span class="c1"># ---------------------------------------------------------------------</span>
+
+<span class="c1"># Definir los niveles de conocimiento</span>
+<span class="n">niveles_conocimiento</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Básico'</span><span class="p">,</span> <span class="s1">'Intermedio'</span><span class="p">,</span> <span class="s1">'Avanzado'</span><span class="p">]</span>
+
+<span class="c1"># Calcular el número de permutaciones</span>
+<span class="n">num_permutaciones</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">niveles_conocimiento</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Número de maneras diferentes de ordenar los niveles de conocimiento: </span><span class="si">{</span><span class="n">num_permutaciones</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Mostrar todas las permutaciones posibles (opcional)</span>
+<span class="n">permutaciones_lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">niveles_conocimiento</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Permutaciones: </span><span class="si">{</span><span class="n">permutaciones_lista</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># Problema 2: Combinaciones (Con datos representativos)</span>
+<span class="c1"># ---------------------------------------------------------------------</span>
+
+<span class="c1"># Filtrar estudiantes interesados en IA</span>
+<span class="n">interesados_ia</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'¿Qué tan familiarizado(a) estás con los conceptos de IA? '</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'Nada'</span><span class="p">]</span>  <span class="c1"># Excluir "Nada"</span>
+
+<span class="c1"># Calcular el número de combinaciones para formar grupos de 3 estudiantes</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">interesados_ia</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+    <span class="n">num_combinaciones</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">//</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">r</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Número de maneras de seleccionar 3 estudiantes de </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> interesados en IA: </span><span class="si">{</span><span class="n">num_combinaciones</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># Mostrar todas las combinaciones posibles </span>
+    <span class="c1">#combinaciones_lista = list(combinations(interesados_ia.index, r))</span>
+    <span class="c1">#print(f"Combinaciones: {combinaciones_lista}")</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No hay suficientes estudiantes interesados en IA para formar grupos de </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">. Solo hay </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Número de maneras diferentes de ordenar los niveles de conocimiento: 6
+Permutaciones: [('Básico', 'Intermedio', 'Avanzado'), ('Básico', 'Avanzado', 'Intermedio'), ('Intermedio', 'Básico', 'Avanzado'), ('Intermedio', 'Avanzado', 'Básico'), ('Avanzado', 'Básico', 'Intermedio'), ('Avanzado', 'Intermedio', 'Básico')]
+Número de maneras de seleccionar 3 estudiantes de 29 interesados en IA: 3654
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
