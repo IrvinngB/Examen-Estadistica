@@ -19,101 +19,6 @@ body {
     line-height: 1.6;
 }
 
-/* Animación de fondo */
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.background-animation span {
-    position: absolute;
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    animation: animate 25s linear infinite;
-}
-
-.background-animation span:nth-child(1) {
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
-}
-
-.background-animation span:nth-child(2) {
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
-}
-
-.background-animation span:nth-child(3) {
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-}
-
-@keyframes animate {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-header {
-    background-color: rgba(0, 31, 63, 0.8);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-accent);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 2rem;
-}
-
-nav a {
-    color: var(--color-text);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--color-accent);
-}
-
 main {
     padding-top: 4rem;
 }
@@ -124,30 +29,20 @@ section {
     margin: 0 auto;
 }
 
-h1, h2, h3 {
-    margin-bottom: 1rem;
-}
-
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 6rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .hero h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
     color: var(--color-accent);
 }
 
 .hero p {
     font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    margin: 1rem auto 2rem;
 }
 
 .cta-buttons {
@@ -157,13 +52,12 @@ h1, h2, h3 {
 .btn {
     display: inline-block;
     padding: 1rem 2rem;
-    margin: 0.5rem;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -181,65 +75,52 @@ h1, h2, h3 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-#about {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-}
-
-.course-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.info-card {
+/* General Section Styles */
+#about, #group-members, #exam-description, #group-objectives, #survey-description {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
+#about h2, #group-members h2, #exam-description h2, #group-objectives h2, #survey-description h2 {
+    margin-bottom: 1rem;
+    color: var(--color-accent);
 }
 
-.info-card h3 {
-    color: var(--color-tertiary);
+#group-members ul, #group-objectives ul {
+    list-style: disc;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
 }
 
-#objectives {
+/* Footer */
+footer {
     text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 4rem;
 }
 
-.objectives-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.objective-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    flex: 1 1 200px;
-    max-width: 300px;
-    transition: all 0.3s ease;
-}
-
-.objective-item:hover {
-    background-color: var(--color-secondary);
-    transform: scale(1.05);
-}
 
 #exam {
     text-align: center;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#exam h2 {
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
 }
 
 .exam-areas {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
@@ -249,51 +130,42 @@ h1, h2, h3 {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 10px;
-    flex: 1;
     max-width: 400px;
-    transition: all 0.3s ease;
+    flex: 1 1 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .exam-area:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .exam-area h3 {
-    color: var(--color-tertiary);
+    color: var(--color-accent);
     margin-bottom: 1rem;
 }
 
-footer {
-    background-color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
+.exam-area p {
+    margin-bottom: 1.5rem;
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
+.exam-area a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transition: all 0.3s ease;
+}
 
-    nav ul {
-        margin-top: 1rem;
-    }
-
-    nav ul li {
-        margin: 0 0.5rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .exam-areas {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .exam-area {
-        width: 100%;
-    }
+.exam-area a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-secondary);
 }
