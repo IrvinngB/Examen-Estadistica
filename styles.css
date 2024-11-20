@@ -169,3 +169,27 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     background-color: var(--color-secondary);
 }
+
+.repository-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.repository-link a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+.repository-link a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-tertiary);
+}
