@@ -3,7 +3,6 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="icon" href="statistics-svgrepo-com.svg" type="image/svg+xml">
 <title>General</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
@@ -7559,7 +7558,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -7574,8 +7573,6 @@ a.anchor-link {
 <span class="n">file_path</span> <span class="o">=</span> <span class="s1">'Respuestas.xlsx'</span>
 <span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">'Respuestas de formulario 1'</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">)</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># Vista previa de los datos</span>
 </pre></div>
 </div>
 </div>
@@ -7586,7 +7583,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7908,6 +7905,7 @@ dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Interpretacion">Interpretacion<a class="anchor-link" href="#Interpretacion">¶</a></h3><p>La varianza de la columna "Edad" es 32.722989, lo que indica que las edades de los individuos en el conjunto de datos tienen una dispersión moderada alrededor de la media. La desviación estándar es 5.720401, lo que significa que, en promedio, las edades difieren de la media en aproximadamente 5.72 años. El rango de la columna "Edad" es 23, lo que muestra la diferencia entre la edad mínima y máxima en el conjunto de datos.</p>
 <h2 id="4.-Tablas-de-Frecuencia">4. Tablas de Frecuencia<a class="anchor-link" href="#4.-Tablas-de-Frecuencia">¶</a></h2><h3 id="Tablas-de-Frecuencia">Tablas de Frecuencia<a class="anchor-link" href="#Tablas-de-Frecuencia">¶</a></h3><p>Se crean tablas de frecuencia para columnas seleccionadas del conjunto de datos.</p>
 </div>
 </div>
@@ -7965,6 +7963,7 @@ Intervalos
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>La tabla de frecuencia muestra la distribución de edades en intervalos de 5 años. La mayoría de los individuos se encuentran en el intervalo de 20-25 años, representando el 46.67% del total. El siguiente intervalo más frecuente es el de 25-30 años con un 20%. Los intervalos de 30-35 y 40-45 años tienen frecuencias menores, mientras que los intervalos de 35-40 y 45-50 años no tienen individuos. La frecuencia acumulada muestra que el 96% de los individuos tienen edades entre 20 y 35 años.</p>
 <h2 id="5.-Medidas-de-Forma">5. Medidas de Forma<a class="anchor-link" href="#5.-Medidas-de-Forma">¶</a></h2><h3 id="Asimetr%C3%ADa-y-Curtosis">Asimetría y Curtosis<a class="anchor-link" href="#Asimetr%C3%ADa-y-Curtosis">¶</a></h3><p>Se calculan las medidas de forma para las columnas numéricas del conjunto de datos.</p>
 </div>
 </div>
@@ -8017,6 +8016,9 @@ dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>La distribución de las edades tiene una asimetría positiva, lo que significa que hay una mayor concentración de edades más jóvenes con algunos valores de edades más avanzadas que son extremos.
+La curtosis positiva indica que la distribución de las edades tiene más valores extremos de lo que se esperaría en una distribución normal, lo que sugiere la presencia de outliers.
+En resumen, los datos de la columna "Edad" están sesgados hacia la derecha y tienen una mayor cantidad de valores extremos.</p>
 <h2 id="6.-Visualizaci%C3%B3n-de-Datos">6. Visualización de Datos<a class="anchor-link" href="#6.-Visualizaci%C3%B3n-de-Datos">¶</a></h2><h3 id="Gr%C3%A1ficos">Gráficos<a class="anchor-link" href="#Gr%C3%A1ficos">¶</a></h3><p>Se incluyen gráficos para analizar la distribución y variabilidad de los datos:</p>
 <ul>
 <li><strong>Histograma</strong> para visualizar la distribución de frecuencias.</li>

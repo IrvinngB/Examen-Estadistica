@@ -3,7 +3,6 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="icon" href="statistics-svgrepo-com.svg" type="image/svg+xml">
 <title>Bonus</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
@@ -7554,7 +7553,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e9ddc59a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e9ddc59a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7585,185 +7584,7 @@ a.anchor-link {
 
 <span class="n">df</span><span class="p">[</span><span class="s1">'Edad'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Edad'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>  <span class="c1"># Asegurar que Edad sea numérica</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'Edad'</span><span class="p">,</span> <span class="s1">'Nivel_IA'</span><span class="p">])</span>  <span class="c1"># Eliminar filas con datos faltantes</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># Vista previa de los datos procesados</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Marca temporal</th>
-<th>Edad</th>
-<th>Genero</th>
-<th>Carrera</th>
-<th>¿Cuál es tu nivel de conocimiento sobre Blockchain?</th>
-<th>¿Cuál es tu nivel de conocimiento sobre Criptomonedas?</th>
-<th>¿Cuál es tu nivel de conocimiento sobre Inteligencia Artificial (IA)?</th>
-<th>¿Cuál es tu nivel de conocimiento sobre Machine Learning (ML)?</th>
-<th>¿Conoces las aplicaciones de Blockchain en sistemas computacionales?</th>
-<th>¿Qué tan actualizado(a) te consideras en las nuevas tecnologías de sistemas computacionales?</th>
-<th>...</th>
-<th>¿Consideras que el Blockchain es una tecnología útil para la ciberseguridad?</th>
-<th>¿Te gustaría que se incluyeran temas sobre Blockchain en los cursos universitarios?</th>
-<th>¿Consideras que el uso de Blockchain puede mejorar la transparencia en los sistemas computacionales?</th>
-<th>¿Qué tan familiarizado(a) estás con los conceptos de IA?</th>
-<th>¿Qué tan familiarizado(a) estás con los conceptos de ML?</th>
-<th>¿Consideras que los conocimientos en IA son relevantes para tu futuro profesional?</th>
-<th>¿Consideras que los conocimientos en ML son relevantes para tu futuro profesional?</th>
-<th>¿Qué tan difícil consideras el aprendizaje de IA y ML?</th>
-<th>¿Crees que IA y ML revolucionarán los sistemas computacionales en los próximos años?</th>
-<th>Nivel_IA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2024-11-16 01:50:40.292</td>
-<td>20</td>
-<td>Hombre</td>
-<td>Licenciatura en Desarrollo y Gestión del Software</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>Intermedio</td>
-<td>Intermedio</td>
-<td>Poco</td>
-<td>Poco</td>
-<td>...</td>
-<td>No estoy seguro(a)</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Muy familiarizado(a)</td>
-<td>Bastante</td>
-<td>Muy relevantes</td>
-<td>Muy relevantes</td>
-<td>Bastante difícil</td>
-<td>Es práctimente seguro</td>
-<td>3.0</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2024-11-16 02:05:34.528</td>
-<td>21</td>
-<td>Hombre</td>
-<td>Licenciatura en Desarrollo de Software</td>
-<td>Ninguno</td>
-<td>Ninguno</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>No</td>
-<td>Poco</td>
-<td>...</td>
-<td>No estoy seguro(a)</td>
-<td>No</td>
-<td>No estoy seguro(a)</td>
-<td>Poco</td>
-<td>Poco</td>
-<td>Algo relevantes</td>
-<td>Algo relevantes</td>
-<td>Bastante difícil</td>
-<td>Algo probable</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>2024-11-16 02:11:10.320</td>
-<td>20</td>
-<td>Hombre</td>
-<td>Licenciatura en Redes Informáticas</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>No</td>
-<td>Bastante</td>
-<td>...</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Muy familiarizado(a)</td>
-<td>Bastante</td>
-<td>Algo relevantes</td>
-<td>Nada relevantes</td>
-<td>Muy difícil</td>
-<td>Muy probable</td>
-<td>2.0</td>
-</tr>
-<tr>
-<th>3</th>
-<td>2024-11-16 10:12:41.885</td>
-<td>20</td>
-<td>Hombre</td>
-<td>Licenciatura en Desarrollo de Software</td>
-<td>Básico</td>
-<td>Básico</td>
-<td>Avanzado</td>
-<td>Intermedio</td>
-<td>Poco</td>
-<td>Muy actualizado(a)</td>
-<td>...</td>
-<td>No estoy seguro(a)</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Muy familiarizado(a)</td>
-<td>Poco</td>
-<td>Muy relevantes</td>
-<td>Muy relevantes</td>
-<td>Poco difícil</td>
-<td>Es práctimente seguro</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>4</th>
-<td>2024-11-16 10:44:29.661</td>
-<td>32</td>
-<td>Hombre</td>
-<td>Licenciatura en Desarrollo de Software</td>
-<td>Avanzado</td>
-<td>Avanzado</td>
-<td>Intermedio</td>
-<td>Intermedio</td>
-<td>Mucho</td>
-<td>Bastante</td>
-<td>...</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>Bastante</td>
-<td>Poco</td>
-<td>Bastante relevantes</td>
-<td>Bastante relevantes</td>
-<td>Nada difícil</td>
-<td>Muy probable</td>
-<td>3.0</td>
-</tr>
-</tbody>
-</table>
-<p>5 rows × 25 columns</p>
-</div>
 </div>
 </div>
 </div>
@@ -7821,6 +7642,16 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>El coeficiente de correlación (<code>r</code>) mide la intensidad y dirección de la relación lineal entre dos variables:</p>
+<ul>
+<li><strong><code>r</code> cercano a +1</strong>: Relación lineal positiva fuerte.</li>
+<li><strong><code>r</code> cercano a -1</strong>: Relación lineal negativa fuerte.</li>
+<li><strong><code>r</code> cercano a 0</strong>: Poca o ninguna relación lineal.</li>
+</ul>
+<h4 id="Resultado:">Resultado:<a class="anchor-link" href="#Resultado:">¶</a></h4><p>El cálculo realizado muestra un <strong>coeficiente de correlación (<code>r</code>) de 0.24</strong>.</p>
+<ul>
+<li><strong>Relación débil positiva</strong>: Existe una relación lineal leve entre la <strong>Edad</strong> y el <strong>Nivel de Conocimiento sobre IA</strong>. Es decir, a mayor edad, podría haber un ligero incremento en el conocimiento sobre IA, pero no es una relación fuerte ni significativa.</li>
+</ul>
 <h2 id="3.-Coeficiente-de-Determinaci%C3%B3n">3. Coeficiente de Determinación<a class="anchor-link" href="#3.-Coeficiente-de-Determinaci%C3%B3n">¶</a></h2><h3 id="Definici%C3%B3n:">Definición:<a class="anchor-link" href="#Definici%C3%B3n:">¶</a></h3><p>El coeficiente de determinación (( R^2 )) mide la proporción de la variabilidad en la variable dependiente que puede ser explicada por la variable independiente en el modelo de regresión lineal.</p>
 <p><strong>Ejemplo:</strong> Relación entre 'Edad' y el nivel de conocimiento sobre IA.</p>
 </div>
@@ -7868,6 +7699,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>El cálculo muestra un <strong>coeficiente de determinación (<code>R^2</code>) de 0.06</strong>.</p>
+<p>El modelo de regresión lineal explica solo el <strong>6%</strong> de la variabilidad en el nivel de conocimiento sobre IA basado en la edad. Esto indica que la <strong>edad</strong> no es un buen predictor del <strong>nivel de conocimiento sobre IA</strong>, ya que la mayor parte de la variabilidad no puede ser explicada por esta relación.</p>
 <h2 id="4.-Trazo-de-la-Recta-de-Regresi%C3%B3n-(M%C3%ADnimos-Cuadrados)">4. Trazo de la Recta de Regresión (Mínimos Cuadrados)<a class="anchor-link" href="#4.-Trazo-de-la-Recta-de-Regresi%C3%B3n-(M%C3%ADnimos-Cuadrados)">¶</a></h2><h3 id="Definici%C3%B3n:">Definición:<a class="anchor-link" href="#Definici%C3%B3n:">¶</a></h3><p>El método de mínimos cuadrados se utiliza para calcular la ecuación de la recta de regresión lineal.
 Esta recta minimiza la suma de los cuadrados de las diferencias entre los valores observados y los valores predichos por el modelo.</p>
 <p><strong>Ejemplo:</strong> Trazar la recta de regresión para 'Edad' como variable independiente y el nivel de conocimiento sobre IA como dependiente.</p>
@@ -7918,6 +7751,16 @@ Esta recta minimiza la suma de los cuadrados de las diferencias entre los valore
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>La gráfica representa una <strong>regresión lineal</strong> utilizando el método de <strong>mínimos cuadrados</strong>. Este método ajusta una línea (recta roja) para minimizar las diferencias entre:</p>
+<ul>
+<li><strong>Datos reales</strong>: Representados por los puntos azules.</li>
+<li><strong>Predicciones del modelo</strong>: Representadas por la línea roja.</li>
+</ul>
+<h4 id="Detalles:">Detalles:<a class="anchor-link" href="#Detalles:">¶</a></h4><ul>
+<li><strong>Eje X (Edad)</strong>: Variable independiente.</li>
+<li><strong>Eje Y (Nivel de Conocimiento sobre IA)</strong>: Variable dependiente.</li>
+</ul>
+<p>La línea de regresión muestra una relación <strong>positiva débil</strong> entre la edad y el nivel de conocimiento sobre IA. Esto sugiere que, en general, el conocimiento sobre IA podría aumentar ligeramente con la edad, aunque los datos presentan una dispersión significativa.</p>
 <h2 id="5.-Error-Est%C3%A1ndar-de-Estimaci%C3%B3n">5. Error Estándar de Estimación<a class="anchor-link" href="#5.-Error-Est%C3%A1ndar-de-Estimaci%C3%B3n">¶</a></h2><h3 id="Definici%C3%B3n:">Definición:<a class="anchor-link" href="#Definici%C3%B3n:">¶</a></h3><p>El error estándar de estimación mide la precisión de las predicciones realizadas por el modelo de regresión. Un valor bajo indica que el modelo ajusta bien los datos.</p>
 <p><strong>Ejemplo:</strong> Calcular el error estándar de estimación para el modelo ajustado previamente.</p>
 </div>
@@ -7960,6 +7803,8 @@ Esta recta minimiza la suma de los cuadrados de las diferencias entre los valore
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>El cálculo realizado muestra un <strong>error estándar de estimación de 0.71</strong>.</p>
+<p>El modelo presenta un error estándar relativamente bajo, lo que indica que las predicciones del modelo tienen una <strong>precisión moderada</strong> en relación con los datos reales. Sin embargo, podría mejorarse si se ajusta el modelo o se consideran otras variables explicativas.</p>
 <h1 id="Problemas-de-Permutaciones-y-Combinaciones-con-Datos-de-Encuesta">Problemas de Permutaciones y Combinaciones con Datos de Encuesta<a class="anchor-link" href="#Problemas-de-Permutaciones-y-Combinaciones-con-Datos-de-Encuesta">¶</a></h1><p>**Nota: este tema fue pasado por alto asi que fue anexado aqui</p>
 <h2 id="1.-Problema-de-Permutaciones">1. Problema de Permutaciones<a class="anchor-link" href="#1.-Problema-de-Permutaciones">¶</a></h2><h3 id="Ejemplo:">Ejemplo:<a class="anchor-link" href="#Ejemplo:">¶</a></h3><p>"¿De cuántas maneras diferentes se pueden ordenar los niveles de conocimiento (Básico, Intermedio, Avanzado) en Blockchain, IA y ML para un estudiante?"</p>
 <h3 id="Soluci%C3%B3n:">Solución:<a class="anchor-link" href="#Soluci%C3%B3n:">¶</a></h3><p>El orden importa en este caso, por lo que utilizaremos la fórmula de permutaciones</p>
@@ -7974,7 +7819,7 @@ Esta recta minimiza la suma de los cuadrados de las diferencias entre los valore
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Importar librerías necesarias</span>
@@ -8042,6 +7887,38 @@ Permutaciones: [('Básico', 'Intermedio', 'Avanzado'), ('Básico', 'Avanzado', '
 Número de maneras de seleccionar 3 estudiantes de 29 interesados en IA: 3654
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5601d08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Interpretaci%C3%B3n-de-Resultados-de-Permutaciones-y-Combinaciones">Interpretación de Resultados de Permutaciones y Combinaciones<a class="anchor-link" href="#Interpretaci%C3%B3n-de-Resultados-de-Permutaciones-y-Combinaciones">¶</a></h3><h4 id="Permutaciones:">Permutaciones:<a class="anchor-link" href="#Permutaciones:">¶</a></h4><ul>
+<li><strong>Número de maneras diferentes de ordenar los niveles de conocimiento</strong>: 6<ul>
+<li>Esto significa que hay 6 formas distintas de organizar los niveles de conocimiento (Básico, Intermedio, Avanzado).</li>
+<li>Las permutaciones posibles son:<ol>
+<li>(Básico, Intermedio, Avanzado)</li>
+<li>(Básico, Avanzado, Intermedio)</li>
+<li>(Intermedio, Básico, Avanzado)</li>
+<li>(Intermedio, Avanzado, Básico)</li>
+<li>(Avanzado, Básico, Intermedio)</li>
+<li>(Avanzado, Intermedio, Básico)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Combinaciones:">Combinaciones:<a class="anchor-link" href="#Combinaciones:">¶</a></h4><ul>
+<li><strong>Número de maneras de seleccionar 3 estudiantes de 29 interesados en IA</strong>: 3654<ul>
+<li>Esto indica que hay 3654 formas diferentes de seleccionar un grupo de 3 estudiantes de un total de 29 estudiantes interesados en IA.</li>
+<li>En este caso, el orden de selección no importa, solo la combinación de estudiantes.</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
