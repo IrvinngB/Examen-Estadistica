@@ -317,3 +317,35 @@ header .btn-primary:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     background-color: var(--color-tertiary);
 }
+
+
+/* Icon Styles */
+
+
+.technologies-used {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.technologies-used ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.technologies-used li {
+    display: flex;
+    flex-direction: column; /* Apilar el ícono y el texto */
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+
+.technologies-used i {
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem; /* Espacio entre el ícono y el texto */
+}
