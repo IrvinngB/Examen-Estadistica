@@ -3,7 +3,6 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="icon" href="statistics-svgrepo-com.svg" type="image/svg+xml">
 <title>General</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
@@ -7559,7 +7558,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -7595,7 +7594,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calcular medidas de tendencia central para columnas numéricas</span>
@@ -7678,7 +7677,7 @@ Name: 0, dtype: object
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calcular medidas de dispersión</span>
@@ -7742,17 +7741,40 @@ dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Generar tablas de frecuencia para una columna específica (ejemplo: 'Edad')</span>
-<span class="k">if</span> <span class="s1">'Edad'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'20-25'</span><span class="p">,</span> <span class="s1">'25-30'</span><span class="p">,</span> <span class="s1">'30-35'</span><span class="p">,</span> <span class="s1">'35-40'</span><span class="p">,</span> <span class="s1">'40-45'</span><span class="p">,</span> <span class="s1">'45-50'</span><span class="p">]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">'Intervalos'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Edad'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
+<span class="c1"># Suponiendo que ya tienes un DataFrame 'df' con una columna 'Edad'</span>
+
+<span class="c1"># Verificar si la columna 'Edad' existe en el DataFrame</span>
+<span class="k">if</span> <span class="s1">'Edad'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="c1"># Definir los intervalos y etiquetas para las clases</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'15-19'</span><span class="p">,</span> <span class="s1">'20-24'</span><span class="p">,</span> <span class="s1">'25-29'</span><span class="p">,</span> <span class="s1">'30-34'</span><span class="p">,</span> <span class="s1">'35-39'</span><span class="p">,</span> <span class="s1">'40-44'</span><span class="p">]</span>
+    
+    <span class="c1"># Crear una nueva columna con los intervalos</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Intervalos'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Edad'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Calcular la tabla de frecuencia</span>
     <span class="n">tabla_frecuencia</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Intervalos'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Frecuencia Absoluta'</span><span class="p">)</span>
     <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Relativa'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Absoluta'</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Porcentual (%)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Relativa'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
     <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Acumulada'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'Frecuencia Absoluta'</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    
+    <span class="c1"># Agregar límites y punto medio</span>
+    <span class="n">intervalos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="p">(</span><span class="n">tabla_frecuencia</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'LI (Límite Inferior)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">intervalos</span><span class="o">.</span><span class="n">left</span>
+    <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'LS (Límite Superior)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">intervalos</span><span class="o">.</span><span class="n">right</span>
+    <span class="n">tabla_frecuencia</span><span class="p">[</span><span class="s1">'xi (Punto Medio)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">intervalos</span><span class="o">.</span><span class="n">mid</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">tabla_frecuencia</span><span class="p">)</span>
+    <span class="c1"># Reordenar columnas</span>
+    <span class="n">tabla_frecuencia</span> <span class="o">=</span> <span class="n">tabla_frecuencia</span><span class="p">[[</span>
+        <span class="s1">'LI (Límite Inferior)'</span><span class="p">,</span> <span class="s1">'LS (Límite Superior)'</span><span class="p">,</span> <span class="s1">'xi (Punto Medio)'</span><span class="p">,</span>
+        <span class="s1">'Frecuencia Absoluta'</span><span class="p">,</span> <span class="s1">'Frecuencia Relativa'</span><span class="p">,</span> <span class="s1">'Frecuencia Porcentual (%)'</span>
+    <span class="p">]]</span>
+
+    <span class="c1"># Mostrar la tabla de frecuencia de manera estética</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">tabla_frecuencia</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s1">'keys'</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">'pretty'</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="n">labels</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'La columna Edad no está disponible para analizar.'</span><span class="p">)</span>
 </pre></div>
@@ -7766,16 +7788,41 @@ dtype: int64
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>            Frecuencia Absoluta  Frecuencia Relativa  Frecuencia Acumulada
-Intervalos                                                                
-20-25                        14             0.466667                    14
-25-30                         6             0.200000                    20
-30-35                         4             0.133333                    24
-35-40                         0             0.000000                    24
-40-45                         1             0.033333                    25
-45-50                         0             0.000000                    25
-</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-intense-fg ansi-bold">In[6], line 22</span>
+<span class="ansi-green-fg">     19</span> tabla_frecuencia[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Frecuencia Acumulada</span><span style="color: rgb(175,0,0)">'</span>] <span style="color: rgb(98,98,98)">=</span> tabla_frecuencia[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Frecuencia Absoluta</span><span style="color: rgb(175,0,0)">'</span>]<span style="color: rgb(98,98,98)">.</span>cumsum()
+<span class="ansi-green-fg">     21</span> <span style="color: rgb(95,135,135)"># Agregar límites y punto medio</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 22</span> intervalos <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">IntervalIndex</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">tabla_frecuencia</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">     23</span> tabla_frecuencia[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">LI (Límite Inferior)</span><span style="color: rgb(175,0,0)">'</span>] <span style="color: rgb(98,98,98)">=</span> intervalos<span style="color: rgb(98,98,98)">.</span>left
+<span class="ansi-green-fg">     24</span> tabla_frecuencia[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">LS (Límite Superior)</span><span style="color: rgb(175,0,0)">'</span>] <span style="color: rgb(98,98,98)">=</span> intervalos<span style="color: rgb(98,98,98)">.</span>right
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Irvinng\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\interval.py:234</span>, in <span class="ansi-cyan-fg">IntervalIndex.__new__</span><span class="ansi-blue-intense-fg ansi-bold">(cls, data, closed, dtype, copy, name, verify_integrity)</span>
+<span class="ansi-green-fg">    231</span> name <span style="color: rgb(98,98,98)">=</span> maybe_extract_name(name, data, <span style="color: rgb(0,135,0)">cls</span>)
+<span class="ansi-green-fg">    233</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> rewrite_exception(<span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">IntervalArray</span><span style="color: rgb(175,0,0)">"</span>, <span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span>):
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 234</span>     array <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">IntervalArray</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    235</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    236</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">closed</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">closed</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    237</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">copy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">copy</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    238</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    239</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">verify_integrity</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">verify_integrity</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    240</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    242</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>_simple_new(array, name)
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Irvinng\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\arrays\interval.py:255</span>, in <span class="ansi-cyan-fg">IntervalArray.__new__</span><span class="ansi-blue-intense-fg ansi-bold">(cls, data, closed, dtype, copy, verify_integrity)</span>
+<span class="ansi-green-fg">    253</span> <span style="color: rgb(95,135,135)"># might need to convert empty or purely na data</span>
+<span class="ansi-green-fg">    254</span> data <span style="color: rgb(98,98,98)">=</span> _maybe_convert_platform_interval(data)
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 255</span> left, right, infer_closed <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">intervals_to_interval_bounds</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    256</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">validate_closed</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">closed</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,0,255)">is</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-fg">    257</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    258</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> left<span style="color: rgb(98,98,98)">.</span>dtype <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(0,135,0)">object</span>:
+<span class="ansi-green-fg">    259</span>     left <span style="color: rgb(98,98,98)">=</span> lib<span style="color: rgb(98,98,98)">.</span>maybe_convert_objects(left)
+
+File <span class="ansi-green-intense-fg ansi-bold">interval.pyx:636</span>, in <span class="ansi-cyan-fg">pandas._libs.interval.intervals_to_interval_bounds</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: type &lt;class 'str'&gt; with value 15-19 is not an interval</pre>
 </div>
 </div>
 </div>
@@ -7797,7 +7844,7 @@ Intervalos
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calcular medidas de forma</span>
@@ -7855,7 +7902,7 @@ En resumen, los datos de la columna "Edad" están sesgados hacia la derecha y ti
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Histograma para una columna numérica (ejemplo: 'Edad')</span>
@@ -7883,6 +7930,301 @@ En resumen, los datos de la columna "Edad" están sesgados hacia la derecha y ti
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
 <img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqwAAAIhCAYAAACL7Og2AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9hAAAPYQGoP6dpAAA5+ElEQVR4nO3deViU9f7/8ReLuKFpIpqWW+6EQC6oxVFp0cq0svRkUraopegprbSOO3bULM0y9ZjlWmlqejL128lK63gMk1wwFcS9LATLHUFm5veHP+Y0gijjMPdH5vm4Lq7L+dz33Pf7vt/3LS/uuWfGz+FwOAQAAAAYyt/qAgAAAIDCEFgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACuCaxnefAEDJR2AFUGzi4uLUqFEj50/jxo0VFRWlhx56SPPnz1dubq7L/LGxsRo2bNgVL/+rr77S0KFDLzvfsGHDFBsb6/Z63PXzzz+rUaNG+vTTT/NNy8nJUfv27fXggw8qKyur2GqIi4tTXFycR5bz515e/NO9e/dCn//pp5+qUaNG+vnnnz1Siye2CcC1I9DqAgCUbE2bNtWoUaMkSTabTSdOnNC3336r8ePHa/PmzXrrrbfk73/hb+dp06YpODj4ipc9d+7cK5qvf//+evzxx4tc+9UKDQ3V4sWLVatWrXzTlixZotzcXM2YMUNly5b1em3u+HMvL1a+fHkvVwPAlxBYARSr4OBgRUZGuozFxsaqXr16eu211/T555+rS5cuki4EouJQUGD0hqCgoHzbnueOO+7QPffco+uvv967RV2FgnoJAN7ALQEALNGrVy9Vq1ZNixYtco5d/FJ9Xpht1qyZWrdurRdffFHp6emSLrwsvGnTJm3atEmNGjVSYmKiEhMT1ahRIy1atEgdOnTQrbfeqg0bNuS7JUCSzp8/r3Hjxqlly5Zq0aKFhg4dqt9//905vaCXnfOWn5iY6Bzbt2+f4uPj1apVK7Vs2VL9+vXT3r17JRV8S8CBAwc0aNAgdevWTbGxsYqLi1NSUpJzet5z1qxZo0GDBikqKkqtWrXS8OHDdfbs2UL36ZEjRxQfH6/mzZvrtttu05w5cwqcb8mSJbrvvvt0yy23qH379nrnnXdks9kKXXZR2O12TZ8+Xe3bt1dERIT69++vEydO5Jtv7dq16tmzp6KionTLLbeoU6dO+vDDD4tlm37//XcNGTJEt912m8LDw9W1a1etWLHCY9sMoHgRWAFYwt/fX23atNH27dvz3csqSUlJSXr55Zd1991367333tMrr7yi77//XkOGDJEkjRo1Sk2bNlXTpk21ePFihYWFOZ87bdo0DR06VCNHjlRUVFSB61+zZo1++uknTZgwQUOHDtW6devUp0+fIgW39PR09ejRQwcOHNDo0aM1adIkZWZm6oknntDx48fzzZ+WlqaHHnpIP//8s4YPH6433nhDfn5+euKJJ7Rp0yaXeUeNGqWaNWtq+vTpevrpp7V06VLNmDHjkrWcPXtWvXr1UmpqqhISEjRixAgtWbJEW7ZscZnvn//8p0aMGKE2bdpo5syZeuyxx/Tee+9pxIgRl91eh8Oh3NzcAn/+/Oa3SZMm6d1339XDDz+sadOmqVKlSnrzzTddlrVu3ToNGDBAYWFhmj59ut555x3ddNNNGjt2rLZt2+bxbXrppZe0d+9ejRkzRu+9956aNm2qoUOH6vvvv7/sdgOwHrcEALBMSEiIzp8/r+PHjyskJMRlWlJSksqUKaO+ffsqKChIklSpUiUlJyfL4XCofv36zvtdL36ZumfPnurUqVOh665cubLef/99lStXzvl4wIAB+vbbb9WhQ4crqn/u3LnKycnRnDlzVLVqVUlS48aN9eijj2rbtm26+eabXeafNm2agoKCNH/+fGft7du3V+fOnfX6669r6dKlznnbtWvnfENZmzZttGHDBq1bt84Z2C+2fPlyHTlyRJ9//rnq168vSYqIiNBdd93lnOfUqVOaPn26evTooeHDh0uSbr/9dlWqVEnDhw/Xk08+qQYNGlxye3/44QeXPwz+bOrUqerUqZNOnjypBQsW6Mknn1R8fLwkKSYmRkePHtV3333nnD8tLU0PPvig/v73vzvHoqKiFB0drcTEREVERHh0mzZt2qQBAwbozjvvlCS1atVKlSpVch5bAMxGYAVgmbyrcn5+fvmmtWzZUlOmTFHnzp3VsWNHtWvXTrfffrvatWt32eU2adLksvO0a9fOGValC7cjBAYG6ocffrjiwJqUlKTIyEhnWJWk6tWr65tvvpGkfO+I37Rpkzp06ODyxrLAwEDdd999evfdd3XmzBnn+MUhvHr16vrll18uWcvmzZtVq1YtZ7CTpBtuuMFlOVu2bNG5c+cUGxvrclU773aJDRs2FBpYw8LCNGbMmAKn5d0nvHXrVp0/fz7fPrznnntcAuszzzwjSTpz5oz279+vQ4cOKTk5WdKFT1Dw9DZFR0frnXfe0c6dOxUTE+PyBwEA8xFYAVgmPT1dZcqUUaVKlfJNi4qK0qxZszR37lzNmTNHs2bNUkhIiJ599tnLfqTRn4Popfw5ZEoXblGoXLmyTp48ecX1Hz9+XDfeeOMVz3/ixIl8V5KlC1eaHQ6HTp8+7Ry7+JMD/P39C/3M2RMnTqhy5cr5xqtWrarMzExnvZLUt2/fApdx9OjRQusvX768wsPDC50n717Vi2u5eH///vvvGjVqlNauXSs/Pz/Vrl1bLVq0kPS/P2Q8uU1TpkzRzJkztWbNGn3xxRfy9/dX27ZtNXbsWNWsWbPQbQJgPQIrAEvk5uYqMTFRt956qwICAgqcJyYmRjExMcrKytL333+v+fPna9y4cYqIiFCzZs2uav0X32Nqs9n0xx9/qEqVKi5jf3bxm54qVKjg8katPBs3btSNN96Y78rxdddd5wxaf5aRkSHpQsi7XGi8lMqVK+vgwYP5xv+8nRUrVpQkvfHGG6pTp06+eQsK0+7UIUnHjh1TvXr1CqxDkl588UXt27dPc+fOVVRUlIKCgpSVlaVPPvnEZVme2qYKFSropZde0ksvvaR9+/bpq6++0vTp0zVmzBjNmjXL3c0F4CW86QqAJRYvXqyMjAw9+uijBU6fOHGiunXrJofDobJly6pDhw7Ol3CPHDkiSc7Pb3XHhg0bXF5C/uKLL5Sbm6vo6GhJFz7C6bfffnN5zp/fzS9JLVq00LZt21xC67Fjx/TMM89o/fr1+dbZsmVLffPNNy5XUm02m1atWqXw8PCrup+ydevW+vnnn50vq0sXrmJu3brV+TgiIkKlSpVSenq6wsPDnT+BgYGaPHmyRz7UPyoqSmXKlNH//d//uYzn3SaRJykpSXfffbeio6Od2/3tt99KuvApA57cpl9++UXt2rVz1lSvXj316dNHbdu2dR5LAMzGFVYAxer06dPOgGG32/XHH3/oP//5jxYvXqwuXbro7rvvLvB5rVu31pw5czRs2DB16dJF58+f1+zZs1WpUiW1bt1a0oWra1u2bNHGjRuL/BmuGRkZGjhwoOLi4nTgwAFNnjxZt912m9q0aSNJ6tChg77++muNHz9esbGx2rx5c76PQerdu7dWrFihZ555Rv369VOpUqU0Y8YMVa9eXffff79OnTrlMn98fLy+/fZbPf744+rbt69KlSqlhQsX6vDhw5o9e3aR6r9Y165dNX/+fMXHx+uFF15QcHCwZsyY4Qx/0oUrls8884ymTp2q06dPKzo6Wunp6Zo6dar8/PzUuHHjQtfx514WJDw8XOXLl1f//v311ltvqWzZsmrdurXWr1+fL7A2a9ZMK1euVFhYmKpXr64ff/xRs2bNkp+fn/Obvzy1TRUqVFD16tU1btw4nT59WrVq1dKOHTu0fv169evXz429DcDbCKwAitXOnTvVo0cPSRfeXFW+fHk1bNhQo0eP1iOPPHLJ57Vr105vvPGGPvjgA8XHx8vPz0/NmzfX/Pnznfe8PvbYY9qxY4f69Omj8ePHKzQ09Irr6tmzp06dOqUBAwYoKChI999/v1566SXny/jdunXToUOHtHz5ci1atEgtW7bU22+/7XJF+IYbbtBHH32kSZMmadiwYQoKClJ0dLSmTJmi6667Ll9gbdCggT766CNNnjxZr7zyivz8/NSsWTPNnz/fef+mu4KCgjRv3jz94x//0GuvvSY/Pz91795dN910k44dO+ac7/nnn1fVqlX10Ucfafbs2bruuuvUpk0bDR48WBUqVCh0HX/uZUF++OEHVaxYUf369VO5cuU0b948zZs3T1FRURo6dKhGjx7tnHfChAlKSEhQQkKCJKlOnToaM2aMPvvsM23evNnj2zRt2jRNnjxZU6dO1R9//KEbbrhB8fHxl7z3FYBZ/ByF3cUPAAAAWIx7WAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoJfZzWO12u3Jzc+Xv75/v6xEBAABgPYfDIbvdrsDAwEK/vbDEBtbc3FyXr/MDAACAmS739dQlNrDmpfTw8HAFBARYXM3Vs9lsSk5OLjHbg0uj176DXvsG+uw76HXR5e2zwq6uSiU4sObdBhAQEFCiDpqStj24NHrtO+i1b6DPvoNeF93lbt/kTVcAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0IwJrTk6OOnfurMTEROfYkSNH1KdPH0VEROiuu+7S6tWrLawQAAAAVrE8sGZnZ2vw4MHas2ePcyw3N1f9+vVTYGCgli9frqefflovv/yyUlNTLawUAAAAVgi0cuVpaWkaMmSIHA6Hy/j69ev166+/6uOPP1ZwcLDq1aunb7/9Vlu2bFHDhg0tqhYAAABWsDSwbtq0SdHR0XrhhRcUGRnpMt6mTRsFBwc7x6ZPn25BhQAAALCapYG1Z8+eBY4fPnxYNWvW1BtvvKF//etfqly5sgYNGqQ777yzyOuw2WxXW+YVO3TokDIzM4tl2Xa7XWlpacrNzZW/v+V3chglJCREtWrVsroMj8k7Zr157MIa9No30GffQa+L7kr3laWB9VLOnj2r5cuX695779XMmTOVmJioQYMGafHixQoPDy/SspKTk4upSle//fabuj38iLLPZXllffif0mXKatnSJapevbrVpXiUt45dWI9e+wb67DvotecZGVgDAgJUqVIljR49Wv7+/goLC9PmzZv1ySefFDmwhoeHKyAgoJgq/Z8ff/xR2eey1H3cDIXWbVDs68MFR/fv0SfDn1NoaKjLbSXXMpvNpuTkZK8du7AOvfYN9Nl30Ouiy9tnl2NkYA0NDZWfn5/LS99169ZVSkpKkZcVEBDglYMmbx2hdRuoZpOIYl8fXHmrz95UErcJBaPXvoE++w567XlG3gwZERGhPXv2uNzXsHfvXtWsWdPCqgAAAGAFIwNr586dZbfbNWbMGB08eFAffvihvvvuO3Xv3t3q0gAAAOBlRgbW4OBgzZkzR/v27VPnzp01f/58TZkyRWFhYVaXBgAAAC8z5h7Wi+9PrV+/vhYuXGhRNQAAADCFkVdYAQAAgDwEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxkRWHNyctS5c2clJibmm3bq1CnFxMTo008/taAyAAAAWM3ywJqdna3Bgwdrz549BU6fNGmSjh496uWqAAAAYApLA2taWpq6d++uQ4cOFTh98+bN+v7771W1alUvVwYAAABTWBpYN23apOjoaC1evDjftJycHI0YMUIjR45UUFCQBdUBAADABIFWrrxnz56XnDZz5kw1bdpUt99++1Wtw2azXdXzTVsPCmaz2UpMD/K2o6RsDy6NXvsG+uw76HXRXem+sjSwXkpaWpoWLVqkzz777KqXlZyc7IGKLi81NdUr60HBUlNT5e9v+S3ZHuWtYxfWo9e+gT77DnrtecYFVofDoeHDh2vQoEEKCQm56uWFh4crICDAA5UVzm63F/s6cGkNGzZUZGSk1WV4hM1mU3JysteOXViHXvsG+uw76HXR5e2zyzEusB45ckRbtmxRSkqKJk6cKEnKysrSqFGjtHr1as2ePbtIywsICPDKQcOBaS1v9dmbSuI2oWD02jfQZ99Brz3PuMBarVo1/fvf/3YZi4uLU1xcnLp06WJRVQAAALCKcYE1MDBQtWvXzjdWpUoVVatWzaKqAAAAYJWS9S4VAAAAlDjGXGFNSUm55LSvv/7ai5UAAADAJFxhBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARjMisObk5Khz585KTEx0jm3dulV//etfFRUVpY4dO2rJkiUWVggAAACrWB5Ys7OzNXjwYO3Zs8c5lpGRoT59+qhVq1Zavny5Bg0apISEBK1bt866QgEAAGCJQCtXnpaWpiFDhsjhcLiMr127ViEhIRo8eLAkqU6dOkpMTNTKlSvVvn17CyoFAACAVSwNrJs2bVJ0dLReeOEFRUZGOsdjYmLUpEmTfPOfPn3ai9UBAADABJYG1p49exY4fuONN+rGG290Pj527JhWrVqlgQMHFnkdNpvN7fpMXA8KZrPZSkwP8rajpGwPLo1e+wb67DvoddFd6b6yNLBeiXPnzmngwIEKCQlRjx49ivz85OTkYqgqv9TUVK+sBwVLTU2Vv7/lt2R7lLeOXViPXvsG+uw76LXnGR1Yz5w5o/79++vAgQP66KOPVLZs2SIvIzw8XAEBAcVQnSu73V7s68ClNWzY0OW2kmuZzWZTcnKy145dWIde+wb67DvoddHl7bPLMTawnj59Ws8884wOHTqkefPmqU6dOm4tJyAgwCsHDQemtbzVZ28qiduEgtFr30CffQe99jwjA6vdbld8fLx+/vlnLViwQDfffLPVJQEAAMAiRgbWpUuXKjExUTNmzFDFihWVkZEhSSpVqpQqVapkbXEAAADwKiMD6xdffCG73a5+/fq5jLdq1UoLFiywqCoAAABYwZjAmpKS4vz3+++/b2ElAAAAMEnJ+hwgAAAAlDgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxkRWHNyctS5c2clJiY6xw4fPqzevXsrMjJS9957r/7zn/9YWCEAAACsYnlgzc7O1uDBg7Vnzx7nmMPh0IABAxQSEqJly5apa9euio+P15EjRyysFAAAAFYItHLlaWlpGjJkiBwOh8v4999/r8OHD2vRokUqV66cbr75Zm3cuFHLli3TwIEDLaoWAAAAVrD0CuumTZsUHR2txYsXu4xv27ZNTZs2Vbly5ZxjzZs319atW71cIQAAAKxm6RXWnj17FjiekZGh0NBQl7EqVarot99+K/I6bDabW7WZuh4UzGazlZge5G1HSdkeXBq99g302XfQ66K70n1laWC9lKysLAUFBbmMBQUFKScnp8jLSk5O9lRZhUpNTfXKelCw1NRU+ftbfku2R3nr2IX16LVvoM++g157npGBtXTp0jp+/LjLWE5OjsqUKVPkZYWHhysgIMBDlV2a3W4v9nXg0ho2bKjIyEiry/AIm82m5ORkrx27sA699g302XfQ66LL22eXY2RgrVatmtLS0lzGMjMz890mcCUCAgK8ctBwYFrLW332ppK4TSgYvfYN9Nl30GvPM/I11IiICP300086d+6ccywpKUkREREWVgUAAAArGBlYW7VqpRtuuEGvvPKK9uzZo1mzZmn79u16+OGHrS4NAAAAXmZkYA0ICND06dOVkZGhhx56SJ999pneffdd1ahRw+rSAAAA4GXG3MOakpLi8rh27dpauHChRdUAAADAFEZeYQUAAADyEFgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaG59DmtWVpYWL16stLQ02Ww253hOTo527typNWvWeKxAAAAA+Da3rrAOHz5cs2bNUlZWlj777DOdP39eaWlpWr16te677z5P1wgAAAAf5tYV1m+//VZTp05V27ZttWfPHvXu3Vu33HKLJkyYoD179ni6RgAAAPgwt66wZmdnq06dOpKkBg0aaMeOHZKkHj16aPPmzR4rDgAAAHArsN58883673//K+lCYE1KSpIknTp1StnZ2Z6rDgAAAD7PrVsC4uPj9be//U12u11du3bVfffdp2effVYpKSmKiYnxdI0AAADwYW4F1jvuuENr1qyR3W7XDTfcoI8++kj/+te/dOuttyouLs7TNQIAAMCHuRVYJemmm25y/rtx48Zq3LixRwoCAAAA/uyKA+sdd9yhpUuXqnLlyoqNjZWfn98l5/3qq688UhwAAABwxYE1Pj5e5cuXlyQNHDiw2AoCAAAA/uyKA+uDDz7o8u+UlBRlZ2erWbNmkqQPPvhAbdu25dYAAAAAeJRbH2u1evVqPfLII/rxxx+dY9u3b1ePHj20du1ajxUHAAAAuBVY3377bY0ZM0a9e/d2jr311lsaNWqUpkyZ4qnaAAAAAPcC62+//aaoqKh8482bN9fhw4evuigAAAAgj1uBtWnTplq4cGG+8U8++YR7WAEAAOBRbn0O67Bhw/T0009r/fr1atKkiSQpJSVFx48f16xZszxaIAAAAHybW4G1WbNm+uKLL/T555/rwIEDCgwMVHR0tLp06aIKFSp4ukYAAAD4MLe/6er666/X448/7slaAAAAgHzcCqy//PKL3nrrLSUnJys3N1cOh8NlOt90BQAAAE9xK7C+/PLL+uOPP/TYY48pODjY0zUBAAAATm4F1u3bt2v58uWqX7++p+sBAAAAXLj1sVZ16tTR77//7ulaAAAAgHzcusLap08fDR8+XE8++aRq166tUqVKuUxv2bKlR4oDAAAA3L6HVZLGjBmTb5qfn5927dp1dVUBAAAA/59bgXX37t2ergMAAAAokFv3sEqSzWbTunXrNHfuXJ08eVLbtm3TqVOnPFkbAAAA4N4V1l9//VVPPfWUTpw4oRMnTuiOO+7Q7NmztWXLFs2ePVuNGzf2dJ0AAADwUW5dYR07dqxatGih7777TkFBQZKkyZMnq23btnrttdc8WiAAAAB8m1uBdfPmzXrqqacUEBDgHCtVqpT69++vHTt2eKw4AAAAwK3AWqZMGR07dizf+P79+/nmKwAAAHiUW4H1r3/9q0aOHKl169ZJuhBUly1bphEjRujhhx/2ZH0AAADwcW696WrAgAGqWLGiRo8eraysLPXt21dVqlRR79699fTTT3u6RgAAAPgwtwKrJMXFxSkuLk5nz56VzWZThQoVPFkXAAAAIMnNwLpixYpCpz/wwAPuLBYAAADIx63A+vbbb7s8ttlsOnbsmAIDA9WsWTMCKwAAADzGrcD69ddf5xs7c+aMRo4cqUaNGl11UQAAAEAet7+a9WLly5fXwIEDNWfOHE8tUr/++qv69eunW2+9VbGxsZo7d67Hlg0AAIBrg9tvuirI7t27ZbfbPba8559/XjVq1NCnn36qtLQ0vfjii6pZs6buuusuj60DAAAAZnMrsMbFxcnPz89l7MyZM0pJSVHv3r09UZdOnDihrVu3KiEhQXXq1FGdOnUUExOjjRs3ElgBAAB8iFuBNTo6Ot9YUFCQXnzxRbVp0+aqi5IufJtW2bJl9emnn2rIkCE6fPiwfvzxRz3//PMeWT4AAACuDW4F1vj4eB07dkwnT55U3bp1JUmrV69W/fr1PVZY6dKlNXLkSCUkJGj+/Pmy2Wx66KGH9MgjjxRpOTabzWM1mbAeFMxms5WYHuRtR0nZHlwavfYN9Nl30Ouiu9J95VZg3bhxowYMGKDevXtr0KBBkqT58+dr1KhRmjlzppo3b+7OYvPZu3evOnTooCeffFJ79uxRQkKC2rRpoy5dulzxMpKTkz1Sy+WkpqZ6ZT0oWGpqqvz9PfYeQiN469iF9ei1b6DPvoNee55bgXXixIl69tln1bdvX+fYokWL9M9//lP/+Mc/tGzZsqsubOPGjVq6dKnWr1+vMmXKKDw8XOnp6ZoxY0aRAmt4eLgCAgKuup7L8eSbzVB0DRs2VGRkpNVleITNZlNycrLXjl1Yh177BvrsO+h10eXts8txK7AeOHBAnTp1yjd+zz33aPr06e4sMp8dO3aodu3aKlOmjHOsadOmmjlzZpGWExAQ4JWDhgPTWt7qszeVxG1Cwei1b6DPvoNee55br6HWq1dPa9asyTf+9ddfq1atWlddlCSFhobq4MGDysnJcY7t27dPN954o0eWDwAAgGuDW1dYn3/+efXv318bNmxQWFiYJCklJUWbN2/WO++845HCYmNjNWnSJA0fPlzPPfec9u/fr5kzZ+qFF17wyPIBAABwbXDrCutf/vIXLV++XE2aNNG+fft06NAhNW7cWKtWrVK7du08UliFChU0d+5cZWRk6OGHH9b48eP13HPPqUePHh5ZPgAAAK4Nbn/TVYMGDfTKK6/oxIkTCg4Olr+/f74vE7ha9evX9+hXvQIAAODa49YVVofDoRkzZig6Olpt2rTRkSNH9NJLL2nkyJEu95wCAAAAV8utwPruu+/qs88+04QJExQUFCRJevDBB7Vhwwa9/vrrHi0QAAAAvs2twLp8+XKNHTtWHTp0cN4GcNttt2nixIkFfnoAAAAA4C63AuuxY8cUGhqab7xixYo6e/bsVRcFAAAA5HErsLZu3Vrvv/++y9jp06c1efJkRUdHe6QwAAAAQHIzsI4ePVo7d+7UbbfdpuzsbPXv31/t2rXTL7/8ouHDh3u6RgAAAPgwtz7WqmLFilq6dKk2btyoffv2KTc3V3Xr1tXtt98uf3+3MjAAAABQILcCa+fOnTVt2jS1adNGbdq08XRNAAAAgJNbl0P9/f11/vx5T9cCAAAA5OPWFdb27dvrySefVIcOHVSzZk3nZ7HmiY+P90hxAAAAgFuBNSUlRWFhYTp69KiOHj3qMs3TX88KAAAA33bFgfWxxx7TjBkzVLFiRS1YsECSdO7cOZUpU6bYigMAAACu+B7WpKSkfPettm3bVocPH/Z4UQAAAECeq/oMKofD4ak6AAAAgALxoakAAAAwGoEVAAAARivSpwSsWbNGwcHBzsd2u11ffvmlrr/+epf5HnjgAY8UBwAAAFxxYK1Ro4Y++OADl7EqVapo4cKFLmN+fn4EVgAAAHjMFQfWr7/+ujjrAAAAAArEPawAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRjA6sOTk5GjNmjFq2bKm2bdtq8uTJcjgcVpcFAAAALwq0uoDCjBs3TomJiXr//fd15swZvfDCC6pRo4b++te/Wl0aAAAAvMTYK6zHjx/XsmXLlJCQoGbNmqlNmzZ66qmntG3bNqtLAwAAgBcZe4U1KSlJwcHBatWqlXOsb9++FlYEAAAAKxgbWA8fPqyaNWtqxYoVmjlzps6fP6+HHnpIzz33nPz9r/zCsM1mK8Yqvb8eFMxms5WYHuRtR0nZHlwavfYN9Nl30Ouiu9J9ZWxgPXv2rA4ePKhFixZp/PjxysjI0MiRI1W2bFk99dRTV7yc5OTkYqzyf1JTU72yHhQsNTW1SH/IXAu8dezCevTaN9Bn30GvPc/YwBoYGKjTp0/rzTffVM2aNSVJR44c0ccff1ykwBoeHq6AgIDiKtPJbrcX+zpwaQ0bNlRkZKTVZXiEzWZTcnKy145dWIde+wb67DvoddHl7bPLMTawVq1aVaVLl3aGVUmqW7eufv311yItJyAgwCsHDQemtbzVZ28qiduEgtFr30CffQe99jxjX0ONiIhQdna29u/f7xzbt2+fS4AFAABAyWdsYK1Xr57at2+vV155Rbt379Z3332nWbNm6dFHH7W6NAAAAHiRsbcESNIbb7yhhIQEPfrooypbtqwee+wxxcXFWV0WAAAAvMjowFqhQgW9/vrrVpcBAAAACxl7SwAAAAAgEVgBAABgOAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIwWaHUBgCfs2rXL6hI8xmazKTU1VXa7XQEBAVaXc0khISGqVauW1WUAAHwAgRXXtFOZ6fLz91evXr2sLsXnlC1XTrt37SK0AgCKHYEV17SsUyflsNvVfdwMhdZtYHU5PuPo/j36ZPhzyszMJLACAIodgRUlQmjdBqrZJMLqMgAAQDHgTVcAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAY7ZoJrH379tWwYcOsLgMAAABedk0E1lWrVmn9+vVWlwEAAAALGB9Yjx8/rtdff13h4eFWlwIAAAALBFpdwOVMnDhRXbt21dGjR60uBQAAABYwOrBu3LhRmzdv1sqVKzV69Gi3lmGz2TxblMXrAUzy008/cexfBbvdrrS0NOXm5srf/8pe8AoJCVGtWrWKuTJ4Ut45wrlS8tHrorvSfWVsYM3OztaoUaM0cuRIlSlTxu3lJCcne7CqS0tNTfXKegATnMpMl5+/vx5//HGrS/E5pcuU1bKlS1S9enWrS0EReev3EaxHrz3P2MA6bdo03XLLLYqJibmq5YSHhysgIMBDVV2a3W4v9nUApsg6dVIOu13dx81QaN0GVpfjM47u36NPhj+n0NBQRUZGWl0OrpDNZlNycrLXfh/BOvS66PL22eUYG1hXrVqlzMxMRUVFSZJycnIkSV988YW2bNlyxcsJCAjwykHDgQlfFFq3gWo2ibC6DJ/jrf/X4Fn0zXfQa88zNrAuWLBAubm5zsdvvPGGJOnFF1+0qiQAAABYwNjAWrNmTZfH5cuXlyTVrl3binIAAABgEeM/hxUAAAC+zdgrrBebMGGC1SUAAADAAlxhBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARgu0ugAAQNHs2rXL6hJ8TkhIiGrVqmV1GYDPIrACwDXiVGa6/Pz91atXL6tL8Tlly5XT7l27CK2ARQisAHCNyDp1Ug67Xd3HzVBo3QZWl+Mzju7fo0+GP6fMzEwCK2ARAisAXGNC6zZQzSYRVpcBAF7Dm64AAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwmtGBNT09XYMGDVKrVq0UExOj8ePHKzs72+qyAAAA4EWBVhdwKQ6HQ4MGDVLFihX14Ycf6sSJE3r11Vfl7++voUOHWl0eAAAAvMTYK6z79u3T1q1bNX78eDVo0EAtWrTQoEGD9Pnnn1tdGgAAALzI2MBatWpVzZ49WyEhIS7jp0+ftqgiAAAAWMHYWwIqVqyomJgY52O73a6FCxeqdevWRVqOzWbzdGmWrgcAYA2bzebW//V5z+H3RMlHr4vuSveVsYH1YpMmTdLOnTu1dOnSIj0vOTm5mCpylZqa6pX1AACskZqaKn9/91+Y9NbvI1iPXnveNRFYJ02apHnz5mnKlClq2LBhkZ4bHh6ugICAYqrsf+x2e7GvAwBgnYYNGyoyMrLIz7PZbEpOTvba7yNYh14XXd4+uxzjA2tCQoI+/vhjTZo0SR07dizy8wMCArxy0HBgAkDJdrW/T7z1+wjWo9eeZ3RgnTZtmhYtWqTJkyerU6dOVpcDAAAACxgbWPfu3avp06erb9++at68uTIyMpzTqlatamFlAAAA8CZjA+tXX30lm82mGTNmaMaMGS7TUlJSLKoKAAAA3mZsYO3bt6/69u1rdRkAAACwmLFfHAAAAABIBFYAAAAYjsAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMFWl0AAADXgl27drn1PJvNptTUVNntdgUEBHi4qpItOztbpUuXtrqMK1ZSeh0SEqJatWpZXYYLAisAAIU4lZkuP39/9erVy+pSfI6fv78cdrvVZficsuXKafeuXUaFVgIrAACFyDp1Ug67Xd3HzVBo3QZWl+MzUjZ8pS+nj2e/e9nR/Xv0yfDnlJmZSWAFAOBaE1q3gWo2ibC6DJ9xdP8eSex3XMCbrgAAAGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVAAAARiOwAgAAwGgEVgAAABiNwAoAAACjEVgBAABgNAIrAAAAjEZgBQAAgNEIrAAAADCa0YE1Oztbr776qlq0aKHbb79dH3zwgdUlAQAAwMsCrS6gMK+//rp27NihefPm6ciRIxo6dKhq1KihTp06WV0aAAAAvMTYwHr27FktWbJE7733nsLCwhQWFqY9e/boww8/JLACAAD4EGNvCdi9e7dyc3MVFRXlHGvevLm2bdsmu91uYWUAAADwJmOvsGZkZKhy5coKCgpyjoWEhCg7O1vHjx/X9ddfX+jzHQ6HJCknJ0cBAQHFWqsk2Ww2lS9fXscP7VUpY/8MKHnOZhxhv1uA/W4N9rs12O/WYL9b4/ihvSpfvrxsNptycnKKfX02m03S/3Lbpfg5LjeHRVasWKGpU6fqm2++cY4dPnxYd955p9avX6/q1asX+vycnBwlJycXd5kAAAC4SuHh4S4XKS9m7BXW0qVL50v2eY/LlClz2ecHBgYqPDxc/v7+8vPzK5YaAQAA4D6HwyG73a7AwMIjqbGBtVq1avrjjz+Um5vr3IiMjAyVKVNGFStWvOzz/f39C03qAAAAuDYYe1dIkyZNFBgYqK1btzrHkpKSnFdNAQAA4BuMTX5ly5bVAw88oNGjR2v79u1au3atPvjgAz3++ONWlwYAAAAvMvZNV5KUlZWl0aNH69///reCg4P19NNPq3fv3laXBQAAAC8yOrACAAAAxt4SAAAAAEgEVgAAABiOwAoAAACjEVgNlJ6erkGDBqlVq1aKiYnR+PHjlZ2dLenCt3317t1bkZGRuvfee/Wf//zH4mpxNQrr9bhx49SoUSOXn4ULF1pcMdxx8OBBPf3004qKilL79u01e/Zs5zTO6ZKlsF5zTpdMffv21bBhw5yPd+7cqUceeUQRERHq1q2bduzYYWF1JYexXxzgqxwOhwYNGqSKFSvqww8/1IkTJ/Tqq6/K399fL7/8sgYMGKCGDRtq2bJlWrt2reLj47V69WrVqFHD6tJRRIX1eujQodq7d6+GDBmiBx980Pmc4OBgCyuGO+x2u/r27avw8HAtX75cBw8e1ODBg1WtWjV17tyZc7oEKazX999/P+d0CbRq1SqtX7/e2dOzZ8+qb9++uv/++zVhwgR9/PHH6tevn7788kuVK1fO4mqvcQ4YJS0tzdGwYUNHRkaGc2zlypWO22+/3fHf//7XERkZ6Thz5oxz2hNPPOF4++23rSgVV6mwXjscDkdMTIzju+++s6o8eEh6errjb3/7m+PUqVPOsQEDBjhGjRrFOV3CFNZrh4NzuqT5448/HH/5y18c3bp1cwwdOtThcDgcS5YsccTGxjrsdrvD4XA47Ha746677nIsW7bMylJLBG4JMEzVqlU1e/ZshYSEuIyfPn1a27ZtU9OmTV3+SmvevLnLt4Hh2lFYr0+fPq309HTVqVPHmuLgMaGhoXrrrbcUHBwsh8OhpKQk/fDDD2rVqhXndAlTWK85p0ueiRMnqmvXrqpfv75zbNu2bWrevLn8/PwkSX5+frr11ls5pz2AwGqYihUrKiYmxvnYbrdr4cKFat26tTIyMhQaGuoyf5UqVfTbb795u0x4QGG93rt3r/z8/DRz5kz95S9/UZcuXbR8+XILq4UnxMbGqmfPnoqKilLHjh05p0uwi3vNOV2ybNy4UZs3b1b//v1dxjmniw/3sBpu0qRJ2rlzp5YuXaq5c+cqKCjIZXpQUJBycnIsqg6e9Ode//TTT/Lz81O9evXUq1cv/fDDDxoxYoSCg4N11113WV0q3PT2228rMzNTo0eP1vjx45WVlcU5XUJd3OuwsDDO6RIiOztbo0aN0siRI1WmTBmXaZzTxYfAarBJkyZp3rx5mjJliho2bKjSpUvr+PHjLvPk5OTkO2Fw7bm41w0aNFCHDh1UqVIlSVLjxo114MABffzxx/xyu4aFh4dLuvAL78UXX1S3bt2UlZXlMg/ndMlwca9//PFHzukSYtq0abrllltcXiHLU7p06XzhlHPaM7glwFAJCQmaM2eOJk2apI4dO0qSqlWrpszMTJf5MjMz8738gGtLQb328/Nz/mLLU69ePaWnp1tQIa5GZmam1q5d6zJWv359nT9/XlWrVuWcLkEK6/Xp06c5p0uIVatWae3atYqKilJUVJRWrlyplStXKioqit/TxYjAaqBp06Zp0aJFmjx5su677z7neEREhH766SedO3fOOZaUlKSIiAgryoQHXKrXU6dOVe/evV3m3b17t+rVq+flCnG1fv75Z8XHx7sEkx07duj6669X8+bNOadLkMJ6vWDBAs7pEmLBggVauXKlVqxYoRUrVig2NlaxsbFasWKFIiIitGXLFjkcDkkXPr7wxx9/5Jz2AAKrYfbu3avp06erT58+at68uTIyMpw/rVq10g033KBXXnlFe/bs0axZs7R9+3Y9/PDDVpcNNxTW6w4dOuiHH37Q+++/r0OHDumjjz7SihUr9NRTT1ldNoooPDxcYWFhevXVV5WWlqb169dr0qRJevbZZzmnS5jCes05XXLUrFlTtWvXdv6UL19e5cuXV+3atdWpUyedPHlSr732mtLS0vTaa68pKytL99xzj9VlX/P8HHl/BsAIs2bN0ptvvlngtJSUFB08eFB///vftW3bNtWuXVuvvvqq2rZt6+Uq4QmX6/XatWv19ttv68CBA6pZs6ZeeOEF3X333V6uEp6Qnp6uhIQEbdy4UWXLllWvXr3Ur18/+fn5cU6XMIX1mnO6ZMr7lqsJEyZIkrZv365Ro0Zp7969atSokcaMGaOmTZtaWWKJQGAFAACA0bglAAAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAoxFYAQAAYDQCKwAAAIxGYAUAAIDRCKwAAAAwGoEVALwsNjZWjRo1KvAnMTEx3/yJiYlq1KiR2+uLi4vTO++8czUlA4ClAq0uAAB80auvvqp777033/h1111nQTUAYDYCKwBYoEKFCqpatarVZQDANYFbAgDAMKdPn9bgwYMVFRWljh07Kjk52WV6UlKSHn30UUVERCgyMlJ9+vTR0aNHndO//PJLdezYUZGRkRo7dqxsNpu3NwEAPIrACgCGGTVqlPbt26eFCxdq+PDhmjNnjnPaqVOn1K9fP9122236/PPP9f777+vQoUOaNWuWJCktLU3PP/+8Hn30US1btky5ublKSkqyalMAwCO4JQAALDBq1CglJCS4jNWoUUOLFi3SmjVrNH/+fIWFhUmS+vfvr7Fjx0qSzp07p/79++vJJ5+Un5+fbrrpJt19993avn27JGnZsmVq0aKFevfuLUkaMWKEvvnmG+9tGAAUAwIrAFhg0KBBuvvuu13GAgMDtX//ftlsNjVu3Ng5Hh4e7vx31apV9cADD2ju3LnatWuX0tLSlJKSoltvvVWStHfvXjVp0sQ5f6lSpVweA8C1iMAKABaoUqWKateunW/82LFj+caCgoKc/05PT1e3bt0UFhamtm3bqnv37lq3bp22bdvmnMfhcLg8v1SpUh6sHAC8j3tYAcAg9erVU6lSpVzeaLVz507nv7/88ktdd911+uc//6knnnhCLVq00OHDh50htUGDBi7Ptdvt2r17t/c2AACKAYEVACxw6tQpZWRk5Pvx9/dX165dlZCQoG3btikxMVHTpk1zPq9SpUo6cuSINm7cqMOHD2vWrFn697//rZycHElS9+7dtWPHDs2YMUP79u3TxIkTdeTIEas2EwA8ws9x8WtHAIBiFRsbq19++aXAaX/729/01FNPKSEhQWvWrNF1112nuLg4TZw4USkpKbLZbBo7dqxWr14tPz8/hYeHKyYmRu+88442btyooKAgbdiwQePHj9ehQ4d055136uzZswoLC9PAgQO9vKUA4BkEVgAAABiNWwIAAABgNAIrAAAAjEZgBQAAgNEIrAAAADAagRUAAABGI7ACAADAaARWAAAAGI3ACgAAAKMRWAEAAGA0AisAAACMRmAFAACA0f4f4LTGtTHrq80AAAAASUVORK5CYII="/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0370a865">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Tabla-de-contingencia">Tabla de contingencia<a class="anchor-link" href="#Tabla-de-contingencia">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f8483ab9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+
+<span class="c1"># Datos ficticios más complejos</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Genero"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span><span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span><span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span><span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span><span class="p">],</span>
+    <span class="s2">"Nivel Blockchain"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Bajo"</span><span class="p">,</span> <span class="s2">"Medio"</span><span class="p">,</span> <span class="s2">"Alto"</span><span class="p">,</span> <span class="s2">"Medio"</span><span class="p">,</span> <span class="s2">"Bajo"</span><span class="p">,</span> <span class="s2">"Alto"</span><span class="p">,</span> <span class="s2">"Medio"</span><span class="p">,</span> <span class="s2">"Bajo"</span><span class="p">],</span>
+    <span class="s2">"Utiliza Criptomonedas"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Sí"</span><span class="p">,</span> <span class="s2">"No"</span><span class="p">,</span> <span class="s2">"Sí"</span><span class="p">,</span> <span class="s2">"No"</span><span class="p">,</span> <span class="s2">"No"</span><span class="p">,</span> <span class="s2">"Sí"</span><span class="p">,</span> <span class="s2">"Sí"</span><span class="p">,</span> <span class="s2">"No"</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Crear tabla de contingencia básica</span>
+<span class="n">tabla_contingencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Genero'</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Utiliza Criptomonedas'</span><span class="p">]],</span>  <span class="c1"># Variables para las filas</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Nivel Blockchain'</span><span class="p">],</span>  <span class="c1"># Variable para las columnas</span>
+    <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Incluir totales</span>
+    <span class="n">margins_name</span><span class="o">=</span><span class="s2">"Total"</span>
+<span class="p">)</span>
+
+<span class="c1"># Tabla con porcentajes relativos por filas</span>
+<span class="n">tabla_porcentajes_filas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Genero'</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Utiliza Criptomonedas'</span><span class="p">]],</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Nivel Blockchain'</span><span class="p">],</span>
+    <span class="n">normalize</span><span class="o">=</span><span class="s1">'index'</span><span class="p">,</span>  <span class="c1"># Normalizar por filas</span>
+    <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Totales relativos</span>
+    <span class="n">margins_name</span><span class="o">=</span><span class="s2">"Total"</span>
+<span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Estilizar las tablas en modo oscuro</span>
+<span class="k">def</span> <span class="nf">estilizar_tabla_modo_oscuro</span><span class="p">(</span><span class="n">tabla</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tabla</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2f}</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span><span class="s2">"selector"</span><span class="p">:</span> <span class="s2">"th"</span><span class="p">,</span> <span class="s2">"props"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"background-color"</span><span class="p">,</span> <span class="s2">"#333333"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"color"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"font-weight"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"border"</span><span class="p">,</span> <span class="s2">"1px solid white"</span><span class="p">)]},</span>
+            <span class="p">{</span><span class="s2">"selector"</span><span class="p">:</span> <span class="s2">"td"</span><span class="p">,</span> <span class="s2">"props"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"background-color"</span><span class="p">,</span> <span class="s2">"#222222"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"color"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"border"</span><span class="p">,</span> <span class="s2">"1px solid #444444"</span><span class="p">)]},</span>
+            <span class="p">{</span><span class="s2">"selector"</span><span class="p">:</span> <span class="s2">"table"</span><span class="p">,</span> <span class="s2">"props"</span><span class="p">:</span> <span class="p">[(</span><span class="s2">"border-collapse"</span><span class="p">,</span> <span class="s2">"collapse"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"width"</span><span class="p">,</span> <span class="s2">"100%"</span><span class="p">)]},</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Gradiente en modo oscuro</span>
+
+<span class="c1"># Aplicar estilo</span>
+<span class="n">tabla_contingencia_estilizada</span> <span class="o">=</span> <span class="n">estilizar_tabla_modo_oscuro</span><span class="p">(</span><span class="n">tabla_contingencia</span><span class="p">)</span>
+<span class="n">tabla_porcentajes_filas_estilizada</span> <span class="o">=</span> <span class="n">estilizar_tabla_modo_oscuro</span><span class="p">(</span><span class="n">tabla_porcentajes_filas</span><span class="p">)</span>
+
+<span class="c1"># Mostrar las tablas en el notebook</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Tabla de Contingencia:"</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">tabla_contingencia_estilizada</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Porcentajes Relativos por Filas:"</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">tabla_porcentajes_filas_estilizada</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Tabla de Contingencia:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<style type="text/css">
+#T_e08db th {
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+}
+#T_e08db td {
+  background-color: #222222;
+  color: white;
+  border: 1px solid #444444;
+}
+#T_e08db table {
+  border-collapse: collapse;
+  width: 100%;
+}
+#T_e08db_row0_col0, #T_e08db_row1_col1, #T_e08db_row1_col2, #T_e08db_row2_col0, #T_e08db_row2_col2 {
+  background-color: #3b4cc0;
+  color: #f1f1f1;
+}
+#T_e08db_row0_col1, #T_e08db_row1_col0, #T_e08db_row1_col3, #T_e08db_row2_col1, #T_e08db_row2_col3, #T_e08db_row3_col0, #T_e08db_row3_col1, #T_e08db_row3_col2 {
+  background-color: #6282ea;
+  color: #f1f1f1;
+}
+#T_e08db_row0_col2, #T_e08db_row4_col0 {
+  background-color: #8db0fe;
+  color: #000000;
+}
+#T_e08db_row0_col3, #T_e08db_row3_col3, #T_e08db_row4_col1, #T_e08db_row4_col2 {
+  background-color: #b9d0f9;
+  color: #000000;
+}
+#T_e08db_row4_col3 {
+  background-color: #b40426;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_e08db">
+<thead>
+<tr>
+<th class="blank"> </th>
+<th class="index_name level0">Nivel Blockchain</th>
+<th class="col_heading level0 col0" id="T_e08db_level0_col0">Alto</th>
+<th class="col_heading level0 col1" id="T_e08db_level0_col1">Bajo</th>
+<th class="col_heading level0 col2" id="T_e08db_level0_col2">Medio</th>
+<th class="col_heading level0 col3" id="T_e08db_level0_col3">Total</th>
+</tr>
+<tr>
+<th class="index_name level0">Genero</th>
+<th class="index_name level1">Utiliza Criptomonedas</th>
+<th class="blank col0"> </th>
+<th class="blank col1"> </th>
+<th class="blank col2"> </th>
+<th class="blank col3"> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_e08db_level0_row0" rowspan="2">Femenino</th>
+<th class="row_heading level1 row0" id="T_e08db_level1_row0">No</th>
+<td class="data row0 col0" id="T_e08db_row0_col0">0.00</td>
+<td class="data row0 col1" id="T_e08db_row0_col1">1.00</td>
+<td class="data row0 col2" id="T_e08db_row0_col2">2.00</td>
+<td class="data row0 col3" id="T_e08db_row0_col3">3.00</td>
+</tr>
+<tr>
+<th class="row_heading level1 row1" id="T_e08db_level1_row1">Sí</th>
+<td class="data row1 col0" id="T_e08db_row1_col0">1.00</td>
+<td class="data row1 col1" id="T_e08db_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_e08db_row1_col2">0.00</td>
+<td class="data row1 col3" id="T_e08db_row1_col3">1.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_e08db_level0_row2" rowspan="2">Masculino</th>
+<th class="row_heading level1 row2" id="T_e08db_level1_row2">No</th>
+<td class="data row2 col0" id="T_e08db_row2_col0">0.00</td>
+<td class="data row2 col1" id="T_e08db_row2_col1">1.00</td>
+<td class="data row2 col2" id="T_e08db_row2_col2">0.00</td>
+<td class="data row2 col3" id="T_e08db_row2_col3">1.00</td>
+</tr>
+<tr>
+<th class="row_heading level1 row3" id="T_e08db_level1_row3">Sí</th>
+<td class="data row3 col0" id="T_e08db_row3_col0">1.00</td>
+<td class="data row3 col1" id="T_e08db_row3_col1">1.00</td>
+<td class="data row3 col2" id="T_e08db_row3_col2">1.00</td>
+<td class="data row3 col3" id="T_e08db_row3_col3">3.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_e08db_level0_row4">Total</th>
+<th class="row_heading level1 row4" id="T_e08db_level1_row4"></th>
+<td class="data row4 col0" id="T_e08db_row4_col0">2.00</td>
+<td class="data row4 col1" id="T_e08db_row4_col1">3.00</td>
+<td class="data row4 col2" id="T_e08db_row4_col2">3.00</td>
+<td class="data row4 col3" id="T_e08db_row4_col3">8.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Porcentajes Relativos por Filas:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<style type="text/css">
+#T_fdc16 th {
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+}
+#T_fdc16 td {
+  background-color: #222222;
+  color: white;
+  border: 1px solid #444444;
+}
+#T_fdc16 table {
+  border-collapse: collapse;
+  width: 100%;
+}
+#T_fdc16_row0_col0, #T_fdc16_row1_col1, #T_fdc16_row1_col2, #T_fdc16_row2_col0, #T_fdc16_row2_col2 {
+  background-color: #3b4cc0;
+  color: #f1f1f1;
+}
+#T_fdc16_row0_col1, #T_fdc16_row3_col0, #T_fdc16_row3_col1, #T_fdc16_row3_col2 {
+  background-color: #aac7fd;
+  color: #000000;
+}
+#T_fdc16_row0_col2 {
+  background-color: #f7b89c;
+  color: #000000;
+}
+#T_fdc16_row1_col0, #T_fdc16_row2_col1 {
+  background-color: #b40426;
+  color: #f1f1f1;
+}
+#T_fdc16_row4_col0 {
+  background-color: #8db0fe;
+  color: #000000;
+}
+#T_fdc16_row4_col1, #T_fdc16_row4_col2 {
+  background-color: #b9d0f9;
+  color: #000000;
+}
+</style>
+<table id="T_fdc16">
+<thead>
+<tr>
+<th class="blank"> </th>
+<th class="index_name level0">Nivel Blockchain</th>
+<th class="col_heading level0 col0" id="T_fdc16_level0_col0">Alto</th>
+<th class="col_heading level0 col1" id="T_fdc16_level0_col1">Bajo</th>
+<th class="col_heading level0 col2" id="T_fdc16_level0_col2">Medio</th>
+</tr>
+<tr>
+<th class="index_name level0">Genero</th>
+<th class="index_name level1">Utiliza Criptomonedas</th>
+<th class="blank col0"> </th>
+<th class="blank col1"> </th>
+<th class="blank col2"> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="row_heading level0 row0" id="T_fdc16_level0_row0" rowspan="2">Femenino</th>
+<th class="row_heading level1 row0" id="T_fdc16_level1_row0">No</th>
+<td class="data row0 col0" id="T_fdc16_row0_col0">0.00</td>
+<td class="data row0 col1" id="T_fdc16_row0_col1">33.33</td>
+<td class="data row0 col2" id="T_fdc16_row0_col2">66.67</td>
+</tr>
+<tr>
+<th class="row_heading level1 row1" id="T_fdc16_level1_row1">Sí</th>
+<td class="data row1 col0" id="T_fdc16_row1_col0">100.00</td>
+<td class="data row1 col1" id="T_fdc16_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_fdc16_row1_col2">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level0 row2" id="T_fdc16_level0_row2" rowspan="2">Masculino</th>
+<th class="row_heading level1 row2" id="T_fdc16_level1_row2">No</th>
+<td class="data row2 col0" id="T_fdc16_row2_col0">0.00</td>
+<td class="data row2 col1" id="T_fdc16_row2_col1">100.00</td>
+<td class="data row2 col2" id="T_fdc16_row2_col2">0.00</td>
+</tr>
+<tr>
+<th class="row_heading level1 row3" id="T_fdc16_level1_row3">Sí</th>
+<td class="data row3 col0" id="T_fdc16_row3_col0">33.33</td>
+<td class="data row3 col1" id="T_fdc16_row3_col1">33.33</td>
+<td class="data row3 col2" id="T_fdc16_row3_col2">33.33</td>
+</tr>
+<tr>
+<th class="row_heading level0 row4" id="T_fdc16_level0_row4">Total</th>
+<th class="row_heading level1 row4" id="T_fdc16_level1_row4"></th>
+<td class="data row4 col0" id="T_fdc16_row4_col0">25.00</td>
+<td class="data row4 col1" id="T_fdc16_row4_col1">37.50</td>
+<td class="data row4 col2" id="T_fdc16_row4_col2">37.50</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
